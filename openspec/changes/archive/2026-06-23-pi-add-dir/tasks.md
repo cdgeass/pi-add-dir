@@ -26,7 +26,7 @@
 
 - [x] 4.1 Hook `session_start` to restore added directories from the current branch
 - [x] 4.2 Hook `session_shutdown` to clear any transient UI status
-- [ ] 4.3 Verify restoration works after `/resume`, `/fork`, `/clone`, and `/tree` navigation
+- [x] 4.3 Verify restoration works after `/resume`, `/fork`, `/clone`, and `/tree` navigation
   - Open pi in a directory, add a dir, send a message, verify resume restores it
   - Test that `/tree` to a branch before add-dir clears the list
 - [x] 4.4 Warn the user once for any restored directory that no longer exists
@@ -48,16 +48,16 @@
 
 ## 7. Testing and validation
 
-- [ ] 7.1 Test `/add-dir`, `/remove-dir`, and `/list-dirs` in interactive TUI mode
+- [x] 7.1 Test `/add-dir`, `/remove-dir`, and `/list-dirs` in interactive TUI mode
   - `pi -e ./src/index.ts` then run each command
   - Test with absolute path, relative path, interactive mode
-- [ ] 7.2 Test session persistence by restarting pi and resuming the session
+- [x] 7.2 Test session persistence by restarting pi and resuming the session
   - Add a dir, exit pi, restart with `pi -c`, verify `/list-dirs` shows it
-- [ ] 7.3 Test branch navigation with `/tree` to verify branch-aware restoration
+- [x] 7.3 Test branch navigation with `/tree` to verify branch-aware restoration
   - Add a dir, fork a session, verify the new session carries the state
-- [ ] 7.4 Test `search_all_dirs` across multiple directories with overlapping file names
+- [x] 7.4 Test `search_all_dirs` across multiple directories with overlapping file names
   - Add a dir with overlapping filenames, verify tool returns absolute paths
-- [ ] 7.5 Verify no implicit path rewriting occurs for built-in `read`/`write`/`edit`/`bash` tools
+- [x] 7.5 Verify no implicit path rewriting occurs for built-in `read`/`write`/`edit`/`bash` tools
   - Try `read relative-file.tsx` after adding a dir that also has that file
   - Confirm it reads from cwd, not the added dir
 

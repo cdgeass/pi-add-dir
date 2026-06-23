@@ -351,10 +351,13 @@ export default function addDirExtension(pi: ExtensionAPI) {
     }
   };
 
-  pi.on("session_start", async (_event, ctx) => {
+  const onSessionEvent = async (_event: any, ctx: ExtensionContext) => {
     restoreAddedDirs(ctx);
     await warnMissingRestoredDirs(ctx);
-  });
+  };
+
+  pi.on("session_start", onSessionEvent);
+  pi.on("session_tree", onSessionEvent);
 
   pi.on("session_shutdown", (_event, ctx) => {
     ctx.ui.setStatus("add-dir", undefined);
